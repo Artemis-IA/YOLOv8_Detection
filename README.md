@@ -1,5 +1,5 @@
 
-# 👷 Détection d'objet avec YOLO et Flask
+# 👷 Détection d'objets avec YOLO et Flask
 
 Ce projet utilise le modèle YOLO (You Only Look Once) pour détecter les personnes, les casques et les gilets dans un flux vidéo en direct. Il utilise Flask pour créer une interface web permettant de visualiser le flux vidéo en direct avec les boîtes de détection superposées et un message de conformité en temps réel.
 
