@@ -3,12 +3,6 @@
 
 Ce projet utilise le modèle YOLO (You Only Look Once) pour détecter les personnes, les casques et les gilets dans un flux vidéo en direct. Il utilise Flask pour créer une interface web permettant de visualiser le flux vidéo en direct avec les boîtes de détection superposées et un message de conformité en temps réel.
 
-## Prérequis
-
-- Python 3.x
-- [Ultralytics YOLO](https://github.com/ultralytics/yolov5) : Assurez-vous d'installer les dépendances requises en suivant les instructions du projet YOLO.
-- OpenCV : Vous pouvez l'installer avec `pip install opencv-python`.
-- Flask : Vous pouvez l'installer avec `pip install Flask`.
 
 ## Installation
 
@@ -21,7 +15,7 @@ Ce projet utilise le modèle YOLO (You Only Look Once) pour détecter les person
 2. Accédez au répertoire du projet :
 
    ```shell
-   cd detection-equipement
+   cd yolov8_detection
    ```
 
 3. Installez les dépendances nécessaires :
