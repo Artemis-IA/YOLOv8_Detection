@@ -1,0 +1,67 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>YOLOv8 Object Detection</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: {{ background_color }};
+        }
+
+        h1 {
+            margin-top: 10px;
+        }
+
+        canvas {
+            display: block;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Détection des équipements de sécurité</h1>
+
+    <!-- Upload image button -->
+    <form method="POST" action="/" enctype="multipart/form-data">
+        <input type="file" name="image_file" accept="image/*" />
+        <input type="submit" value="Envoyer l'image" />
+    </form>
+
+    <!-- Affichage de l'image -->
+
+    <h2>{{ compliance_message }}</h2>
+    {% if image_base64 %}
+        <img src="data:image/jpeg;base64,{{ image_base64 }}" alt="Image" />
+    {% endif %}
+
+    <!-- Affichage des résultats -->
+    {% if results %}
+        <h2>Résultats</h2>
+        <table>
+            <tr>
+                <th>Classe</th>
+                <th>Confiance</th>
+                <th>Coordonnées</th>
+            </tr>
+            {% for result in results %}
+                <tr>
+                    <td>{{ result['class'] }}</td>
+                    <td>{{ result['confidence'] }}</td>
+                    <td>{{ result['coordinates'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    <a href="/video"><button>Détection d'images via webcam</button></a>
+    
+</body>
+</html>

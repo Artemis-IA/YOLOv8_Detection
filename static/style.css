@@ -1,0 +1,63 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: {{ background_color }};
+}
+
+/* En-tête de la page */
+h1 {
+    margin: 20px 0;
+    font-size: 28px;
+    text-align: center;
+    color: #333; /* Couleur du texte de l'en-tête */
+}
+
+/* Boutons */
+button#start,
+button#stop,
+input[type="submit"] {
+    background-color: #007bff; /* Couleur de fond des boutons */
+    color: #fff; /* Couleur du texte des boutons */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition en douceur de la couleur de fond */
+}
+
+button#start:hover,
+button#stop:hover,
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Couleur de fond des boutons au survol */
+}
+
+/* Zone de vidéo */
+#videoFeed {
+    display: none;
+    text-align: center;
+    margin: 20px auto;
+}
+
+/* Styles pour les images et vidéos */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Message de conformité */
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    color: #333; /* Couleur du texte du message */
+}

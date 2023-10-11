@@ -1,0 +1,20 @@
+.
+├── app.py
+├── __pycache__
+│   ├── app.cpython-311.pyc
+│   └── app.cpython-38.pyc
+├── requirements.txt
+├── static
+│   └── style.css
+├── templates
+│   ├── base.html
+│   ├── index.html
+│   └── video.html
+├── tree.txt
+└── weights
+    ├── best.pt
+    ├── last.pt
+    ├── latebest.pt
+    └── latestbest.pt
+
+5 directories, 13 files

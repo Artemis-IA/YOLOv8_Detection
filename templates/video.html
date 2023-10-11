@@ -1,0 +1,82 @@
+<!-- /templates/video.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Détection vidéo</title>
+    <style>
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: {{ background_color }};
+        }
+
+        h1 {
+            margin-top: 10px;
+        }
+
+        canvas {
+            display: block;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Vérificateur de l’uniforme - Yolo v8</h1>
+
+    <div class="compliance-message">
+        {{ compliance_message }}
+    </div>
+
+    <div class="detection-info">
+        {{ detection_info }}
+    </div>
+
+    <video src="/video" controls autoplay></video>
+
+    <script>
+        var videoElement = document.querySelector('video');
+
+        // Mettre à jour le background color et le compliance message à chaque réception d'une nouvelle frame
+        var eventSource = new EventSource('/video');
+        eventSource.onmessage = function(event) {
+            var frameData = event.data;
+            var newlineIndex = frameData.indexOf('\n');
+            var imageData = frameData.substring(newlineIndex).trim();
+            var backgroundColor = event.lastEventId;  // Récupérer la couleur de fond de l'en-tête
+            var complianceMessage = frameData.substring(0, newlineIndex).trim();
+
+            // Mettre à jour le fond de la page et le message de conformité
+            document.body.style.backgroundColor = backgroundColor;
+            document.querySelector('.compliance-message').innerHTML = complianceMessage;
+
+            // Mettre à jour la vidéo avec la nouvelle frame
+            videoElement.src = 'data:image/jpeg;base64,' + imageData;
+        };
+    </script>
+    
+    <input type="range" id="detection-slider" min="0" max="1" step="1" value="1">
+    <div id="slider-value">Détection activée</div>
+    
+    <script>
+        var detectionSlider = document.getElementById('detection-slider');
+        var sliderValueDiv = document.getElementById('slider-value');
+    
+        // Mettre à jour l'état du slider en fonction de sa valeur
+        detectionSlider.addEventListener('input', function() {
+            var isEnabled = detectionSlider.value;
+            var sliderText = isEnabled === '1' ? 'Détection activée' : 'Détection désactivée';
+            sliderValueDiv.textContent = sliderText;
+    
+            // Envoyer la valeur du slider au serveur Flask via une requête AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/toggle_detection/' + isEnabled, true);
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
