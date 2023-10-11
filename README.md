@@ -35,7 +35,7 @@ Ce projet utilise le modèle YOLO (You Only Look Once) pour détecter les person
 1. Lancez l'application Flask :
 
    ```shell
-   python app.py
+   flask run
    ```
 
 2. Accédez à l'application dans votre navigateur à l'adresse `http://localhost:5000`.
