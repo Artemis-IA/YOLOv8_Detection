@@ -1,5 +1,3 @@
-# app.py
-# app.py
 import cv2
 import numpy as np
 from base64 import b64encode
