@@ -41,6 +41,10 @@ Ce projet utilise le modèle YOLO (You Only Look Once) pour détecter les person
 - Vous pouvez personnaliser les classes détectées et leurs alias dans le fichier `aliases.py`.
 - La logique de détection et de traitement d'image se trouve dans la fonction `detect_objects` du fichier `app.py`.
 
+![Capture d'écran du mode vidéo](https://github.com/Artemis-IA/YOLOv8_Detection/blob/main/video_conforme.png)
+![Capture d'écran du mode upload](https://github.com/Artemis-IA/YOLOv8_Detection/blob/main/Image_conforme.png)
+![Capture d'écran du mode upload](https://github.com/Artemis-IA/YOLOv8_Detection/blob/main/Image_non_conforme.png)
+
 ## Auteur
 
 [Artemisia](https://github.com/Artemis-IA)
