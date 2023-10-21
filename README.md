@@ -9,7 +9,7 @@ Ce projet utilise le modèle YOLO (You Only Look Once) pour détecter les person
 1. Clonez ce dépôt sur votre machine locale :
 
    ```shell
-   git clone https://https://github.com/Artemis-IA/YOLOv8_Detection/.git
+   git clone https://github.com/Artemis-IA/YOLOv8_Detection/.git
    ```
 
 2. Accédez au répertoire du projet :
